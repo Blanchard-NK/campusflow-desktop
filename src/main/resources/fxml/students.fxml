@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<!--
+    students.fxml — Students management page.
+    Controller: com.campusflow.controllers.StudentsController
+-->
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.campusflow.controllers.StudentsController"
+      spacing="18" style="-fx-padding: 26; -fx-background-color: #0f172a;">
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT">
+        <VBox spacing="3" HBox.hgrow="ALWAYS">
+            <Label text="Étudiants"
+                   style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;
+                          -fx-font-family: Georgia;" />
+            <Label text="Gestion et consultation des dossiers étudiants"
+                   style="-fx-font-size: 13; -fx-text-fill: #64748b;" />
+        </VBox>
+    </HBox>
+
+    <!-- Toolbar -->
+    <HBox alignment="CENTER_LEFT" spacing="12"
+          style="-fx-background-color: #1e293b; -fx-background-radius: 12;
+                 -fx-padding: 14 18 14 18;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);">
+        <Label text="🔍" style="-fx-font-size: 14; -fx-text-fill: #64748b;" />
+        <TextField fx:id="searchField" promptText="Rechercher par nom, email, spécialité…"
+                   style="-fx-background-color: #0f172a; -fx-border-color: #334155;
+                          -fx-border-radius: 8; -fx-background-radius: 8;
+                          -fx-text-fill: #f1f5f9; -fx-prompt-text-fill: #475569;
+                          -fx-padding: 9 12 9 12; -fx-font-size: 13;"
+                   prefWidth="280" />
+        <ComboBox fx:id="formationFilter" prefWidth="180"
+                  style="-fx-background-color: #0f172a; -fx-border-color: #334155;
+                         -fx-border-radius: 8; -fx-background-radius: 8;
+                         -fx-text-fill: #f1f5f9; -fx-font-size: 13;" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Label fx:id="countLabel" text=""
+               style="-fx-font-size: 12; -fx-text-fill: #64748b;" />
+        <ProgressIndicator fx:id="spinner" prefWidth="22" prefHeight="22" visible="false" />
+    </HBox>
+
+    <!-- Table card -->
+    <VBox VBox.vgrow="ALWAYS"
+          style="-fx-background-color: #1e293b; -fx-background-radius: 14;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 12, 0, 0, 4);">
+        <TableView fx:id="table" VBox.vgrow="ALWAYS"
+                   style="-fx-background-color: transparent;
+                          -fx-table-cell-border-color: #334155;" />
+    </VBox>
+
+</VBox>

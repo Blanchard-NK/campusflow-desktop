@@ -1,0 +1,331 @@
+/* ================================================================
+   CampusFlow Desktop — app.css
+   Dark academic dashboard theme
+   ================================================================ */
+
+/* ── Root / Global ──────────────────────────────────────────── */
+
+.root {
+    -fx-font-family: "System";
+    -fx-font-size: 13px;
+    -fx-background-color: #0f172a;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────── */
+
+.scroll-bar .thumb {
+    -fx-background-color: #334155;
+    -fx-background-radius: 99;
+}
+.scroll-bar .thumb:hover {
+    -fx-background-color: #475569;
+}
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* ── Text Fields (dark) ──────────────────────────────────────── */
+
+.dark-field {
+    -fx-background-color: #0f172a;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #f1f5f9;
+    -fx-prompt-text-fill: #475569;
+    -fx-padding: 10 13 10 13;
+    -fx-font-size: 13px;
+}
+.dark-field:focused {
+    -fx-border-color: #2563eb;
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.25), 6, 0, 0, 0);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+
+.btn-primary {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 11 24 11 24;
+    -fx-background-radius: 9;
+    -fx-cursor: hand;
+}
+.btn-primary:hover {
+    -fx-background-color: #1d4ed8;
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.4), 10, 0, 0, 2);
+}
+.btn-primary:pressed {
+    -fx-scale-x: 0.97;
+    -fx-scale-y: 0.97;
+}
+
+.btn-demo {
+    -fx-background-color: rgba(37,99,235,0.2);
+    -fx-text-fill: #60a5fa;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 7 16 7 16;
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(37,99,235,0.3);
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+}
+.btn-demo:hover {
+    -fx-background-color: rgba(37,99,235,0.35);
+}
+
+.btn-icon {
+    -fx-background-color: transparent;
+    -fx-text-fill: #64748b;
+    -fx-font-size: 16px;
+    -fx-padding: 6 10 6 10;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.btn-icon:hover {
+    -fx-background-color: rgba(255,255,255,0.07);
+    -fx-text-fill: #f1f5f9;
+}
+
+/* ── KPI Cards ───────────────────────────────────────────────── */
+
+.kpi-card {
+    -fx-background-color: #1e293b;
+    -fx-background-radius: 14;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 14, 0, 0, 4);
+}
+
+/* ── Chart Cards ─────────────────────────────────────────────── */
+
+.chart-card {
+    -fx-background-color: #1e293b;
+    -fx-background-radius: 14;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 14, 0, 0, 4);
+}
+
+/* ── Charts (dark) ───────────────────────────────────────────── */
+
+.chart {
+    -fx-background-color: transparent;
+    -fx-plot-background-color: transparent;
+    -fx-padding: 4 0 0 0;
+}
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: rgba(255,255,255,0.05);
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: rgba(255,255,255,0.07);
+}
+.chart-legend {
+    -fx-background-color: transparent;
+    -fx-text-fill: #64748b;
+}
+.axis {
+    -fx-text-fill: #64748b;
+    -fx-tick-label-fill: #64748b;
+    -fx-font-size: 11px;
+}
+.axis-label {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 11px;
+}
+
+/* PieChart label */
+.chart-pie-label {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 11px;
+}
+.chart-pie-label-line {
+    -fx-stroke: #475569;
+}
+
+/* Bar chart bars */
+.default-color0.chart-bar { -fx-bar-fill: #2563eb; }
+.default-color1.chart-bar { -fx-bar-fill: #06b6d4; }
+.default-color2.chart-bar { -fx-bar-fill: #10b981; }
+.default-color3.chart-bar { -fx-bar-fill: #f59e0b; }
+.default-color4.chart-bar { -fx-bar-fill: #8b5cf6; }
+.default-color5.chart-bar { -fx-bar-fill: #ef4444; }
+.default-color6.chart-bar { -fx-bar-fill: #f97316; }
+.default-color7.chart-bar { -fx-bar-fill: #14b8a6; }
+
+/* Pie chart slices */
+.default-color0.chart-pie { -fx-pie-color: #2563eb; }
+.default-color1.chart-pie { -fx-pie-color: #10b981; }
+.default-color2.chart-pie { -fx-pie-color: #f59e0b; }
+.default-color3.chart-pie { -fx-pie-color: #8b5cf6; }
+
+/* Line chart */
+.default-color0.chart-series-line {
+    -fx-stroke: #2563eb;
+    -fx-stroke-width: 2.5;
+}
+.default-color0.chart-line-symbol {
+    -fx-background-color: #2563eb, white;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+}
+
+/* ── TableView (dark) ────────────────────────────────────────── */
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.table-view .column-header {
+    -fx-background-color: rgba(255,255,255,0.04);
+    -fx-border-color: #334155;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 10 16 10 16;
+}
+.table-view .column-header .label {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-transform: uppercase;
+}
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: #1e293b;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 2 0 2 0;
+}
+.table-row-cell:hover {
+    -fx-background-color: rgba(255,255,255,0.03);
+}
+.table-row-cell:selected {
+    -fx-background-color: rgba(37,99,235,0.2);
+}
+.table-cell {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 12px;
+    -fx-padding: 10 16 10 16;
+    -fx-border-color: transparent;
+}
+
+/* ── Sidebar Nav Items ───────────────────────────────────────── */
+
+.nav-item {
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.nav-item:hover {
+    -fx-background-color: rgba(255,255,255,0.07);
+}
+.nav-label {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+}
+
+/* ── ComboBox (dark) ─────────────────────────────────────────── */
+
+.combo-box {
+    -fx-background-color: #0f172a;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #f1f5f9;
+    -fx-font-size: 13px;
+}
+.combo-box .list-cell {
+    -fx-text-fill: #f1f5f9;
+    -fx-background-color: transparent;
+}
+.combo-box-popup .list-view {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+}
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: rgba(37,99,235,0.2);
+}
+.combo-box .arrow {
+    -fx-background-color: #64748b;
+}
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+/* ── Progress Bar ────────────────────────────────────────────── */
+
+.progress-bar > .track {
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-background-radius: 4;
+}
+.progress-bar > .bar {
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+}
+
+/* ── ProgressIndicator ───────────────────────────────────────── */
+
+.progress-indicator .percentage {
+    -fx-text-fill: transparent;
+    -fx-font-size: 0;
+}
+
+/* ── Separator ───────────────────────────────────────────────── */
+
+.separator .line {
+    -fx-border-color: #334155;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ── Alert dialogs ───────────────────────────────────────────── */
+
+.dialog-pane {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+}
+.dialog-pane .header-panel {
+    -fx-background-color: transparent;
+}
+.dialog-pane .header-panel .label {
+    -fx-text-fill: #f1f5f9;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+.dialog-pane .content.label {
+    -fx-text-fill: #94a3b8;
+}
+.dialog-pane .button-bar .button {
+    -fx-background-color: rgba(37,99,235,0.2);
+    -fx-text-fill: #60a5fa;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(37,99,235,0.3);
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+}
+.dialog-pane .button-bar .button:hover {
+    -fx-background-color: rgba(37,99,235,0.4);
+}
+
+/* ── Tooltip ─────────────────────────────────────────────────── */
+
+.tooltip {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #f1f5f9;
+    -fx-border-color: #334155;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 12px;
+}

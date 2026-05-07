@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<!--
+    login.fxml — CampusFlow Login Screen
+    Dark academic theme, split-panel layout.
+    Controller: com.campusflow.controllers.LoginController
+-->
+<HBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.campusflow.controllers.LoginController"
+      fx:id="rootBox"
+      stylesheets="@/styles/app.css"
+      style="-fx-background-color: #0f172a;">
+
+    <!-- ── LEFT decorative panel ─────────────────────────────── -->
+    <VBox prefWidth="440" minWidth="300"
+          style="-fx-background-color: linear-gradient(to bottom right, #1e3a6e, #0f172a); -fx-padding: 48;">
+
+        <!-- Logo -->
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 0 0 40 0;">
+            <Label text="🎓" style="-fx-background-color: linear-gradient(to bottom right,#3b82f6,#06b6d4);
+                                    -fx-background-radius: 10; -fx-padding: 8 12 8 12; -fx-font-size: 20;" />
+            <Label text="CampusFlow"
+                   style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;" />
+        </HBox>
+
+        <!-- Headline -->
+        <Label text="Gérez votre université&#xa;avec précision."
+               wrapText="true"
+               style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: white;
+                      -fx-font-family: Georgia; -fx-padding: 0 0 16 0;" />
+
+        <Label text="Plateforme de gestion académique&#xa;pour les établissements d'Île-de-France.&#xa;BTS · Bachelor · Licence · Master"
+               wrapText="true"
+               style="-fx-font-size: 14; -fx-text-fill: #94a3b8; -fx-padding: 0 0 32 0;" />
+
+        <!-- Stats grid -->
+        <GridPane hgap="12" vgap="12">
+            <!-- Row 0 -->
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="0"
+                  style="-fx-background-color: rgba(255,255,255,0.07); -fx-background-radius: 10;
+                         -fx-border-color: rgba(255,255,255,0.1); -fx-border-radius: 10; -fx-padding: 14;" spacing="3">
+                <Label text="2 400+" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;" />
+                <Label text="Étudiants inscrits" style="-fx-font-size: 11; -fx-text-fill: #64748b;" />
+            </VBox>
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="0"
+                  style="-fx-background-color: rgba(255,255,255,0.07); -fx-background-radius: 10;
+                         -fx-border-color: rgba(255,255,255,0.1); -fx-border-radius: 10; -fx-padding: 14;" spacing="3">
+                <Label text="128" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;" />
+                <Label text="Enseignants" style="-fx-font-size: 11; -fx-text-fill: #64748b;" />
+            </VBox>
+            <!-- Row 1 -->
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="1"
+                  style="-fx-background-color: rgba(255,255,255,0.07); -fx-background-radius: 10;
+                         -fx-border-color: rgba(255,255,255,0.1); -fx-border-radius: 10; -fx-padding: 14;" spacing="3">
+                <Label text="64" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;" />
+                <Label text="Formations actives" style="-fx-font-size: 11; -fx-text-fill: #64748b;" />
+            </VBox>
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="1"
+                  style="-fx-background-color: rgba(255,255,255,0.07); -fx-background-radius: 10;
+                         -fx-border-color: rgba(255,255,255,0.1); -fx-border-radius: 10; -fx-padding: 14;" spacing="3">
+                <Label text="98%" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;" />
+                <Label text="Taux de satisfaction" style="-fx-font-size: 11; -fx-text-fill: #64748b;" />
+            </VBox>
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50" />
+                <ColumnConstraints percentWidth="50" />
+            </columnConstraints>
+        </GridPane>
+
+        <Region VBox.vgrow="ALWAYS" />
+
+        <Label fx:id="versionLabel" text="CampusFlow v1.0.0"
+               style="-fx-font-size: 11; -fx-text-fill: #334155;" />
+    </VBox>
+
+    <!-- ── RIGHT login form ───────────────────────────────────── -->
+    <VBox alignment="CENTER" HBox.hgrow="ALWAYS"
+          style="-fx-background-color: #111827; -fx-padding: 0 0 0 0;">
+
+        <VBox maxWidth="380" spacing="20" style="-fx-padding: 48 40 48 40;">
+
+            <!-- Title -->
+            <Label text="Bon retour 👋"
+                   style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;
+                          -fx-font-family: Georgia;" />
+            <Label text="Connectez-vous à votre espace administrateur"
+                   wrapText="true"
+                   style="-fx-font-size: 13; -fx-text-fill: #64748b;" />
+
+            <!-- Email field -->
+            <VBox spacing="6">
+                <Label text="ADRESSE E-MAIL"
+                       style="-fx-font-size: 10; -fx-font-weight: bold; -fx-text-fill: #64748b; -fx-letter-spacing: 0.06em;" />
+                <TextField fx:id="emailField" promptText="admin@campusflow.fr"
+                           styleClass="dark-field" />
+            </VBox>
+
+            <!-- Password field -->
+            <VBox spacing="6">
+                <Label text="MOT DE PASSE"
+                       style="-fx-font-size: 10; -fx-font-weight: bold; -fx-text-fill: #64748b; -fx-letter-spacing: 0.06em;" />
+                <PasswordField fx:id="passwordField" promptText="••••••••"
+                               styleClass="dark-field" />
+            </VBox>
+
+            <!-- Error message -->
+            <Label fx:id="errorLabel" text="" wrapText="true"
+                   style="-fx-text-fill: #ef4444; -fx-font-size: 12;" />
+
+            <!-- Login button + spinner -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="loginButton" text="Se connecter →"
+                        styleClass="btn-primary"
+                        onAction="#handleLogin"
+                        maxWidth="Infinity"
+                        HBox.hgrow="ALWAYS" />
+                <ProgressIndicator fx:id="spinner" prefWidth="24" prefHeight="24" />
+            </HBox>
+
+            <!-- Demo mode button -->
+            <VBox style="-fx-background-color: #1e3a6e; -fx-background-radius: 10;
+                         -fx-border-color: #1d4ed8; -fx-border-radius: 10; -fx-padding: 14;" spacing="8">
+                <Label text="⚡  Mode Démo disponible"
+                       style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #60a5fa;" />
+                <Label text="Explorez l'application sans backend avec des données simulées."
+                       wrapText="true"
+                       style="-fx-font-size: 11; -fx-text-fill: #3b82f6;" />
+                <Button fx:id="demoButton" text="Lancer en mode démo"
+                        styleClass="btn-demo"
+                        onAction="#handleDemoLogin" />
+            </VBox>
+
+        </VBox>
+    </VBox>
+
+</HBox>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<!--
+    dashboard.fxml — Dashboard page with 7 charts + KPI cards.
+    Controller: com.campusflow.controllers.DashboardController
+-->
+<ScrollPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campusflow.controllers.DashboardController"
+            fitToWidth="true"
+            style="-fx-background-color: transparent; -fx-background: transparent;">
+
+    <VBox spacing="18" style="-fx-padding: 26; -fx-background-color: #0f172a;">
+
+        <!-- Page header -->
+        <VBox spacing="4">
+            <Label text="Tableau de bord"
+                   style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;
+                          -fx-font-family: Georgia;" />
+            <Label text="Vue d'ensemble de votre établissement académique"
+                   style="-fx-font-size: 13; -fx-text-fill: #64748b;" />
+        </VBox>
+
+        <!-- ── KPI Cards (row of 5) ──────────────────────────────── -->
+        <HBox spacing="14">
+
+            <!-- Students -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="kpi-card">
+                <Label text="👥" style="-fx-font-size: 20; -fx-background-color: rgba(37,99,235,0.15);
+                                         -fx-background-radius: 8; -fx-padding: 8 12 8 12;" />
+                <Label fx:id="kpiStudents" text="…"
+                       style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;" />
+                <Label text="Étudiants" style="-fx-font-size: 12; -fx-text-fill: #64748b;" />
+            </VBox>
+
+            <!-- Teachers -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="kpi-card">
+                <Label text="👨‍🏫" style="-fx-font-size: 20; -fx-background-color: rgba(16,185,129,0.15);
+                                           -fx-background-radius: 8; -fx-padding: 8 12 8 12;" />
+                <Label fx:id="kpiTeachers" text="…"
+                       style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;" />
+                <Label text="Enseignants" style="-fx-font-size: 12; -fx-text-fill: #64748b;" />
+            </VBox>
+
+            <!-- Courses -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="kpi-card">
+                <Label text="📚" style="-fx-font-size: 20; -fx-background-color: rgba(245,158,11,0.15);
+                                         -fx-background-radius: 8; -fx-padding: 8 12 8 12;" />
+                <Label fx:id="kpiCourses" text="…"
+                       style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;" />
+                <Label text="Formations" style="-fx-font-size: 12; -fx-text-fill: #64748b;" />
+            </VBox>
+
+            <!-- Reviews -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="kpi-card">
+                <Label text="💬" style="-fx-font-size: 20; -fx-background-color: rgba(139,92,246,0.15);
+                                         -fx-background-radius: 8; -fx-padding: 8 12 8 12;" />
+                <Label fx:id="kpiReviews" text="…"
+                       style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;" />
+                <Label text="Avis reçus" style="-fx-font-size: 12; -fx-text-fill: #64748b;" />
+            </VBox>
+
+            <!-- Satisfaction -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="kpi-card">
+                <Label text="⭐" style="-fx-font-size: 20; -fx-background-color: rgba(6,182,212,0.15);
+                                         -fx-background-radius: 8; -fx-padding: 8 12 8 12;" />
+                <Label fx:id="kpiSatisfaction" text="…"
+                       style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;" />
+                <Label text="Satisfaction" style="-fx-font-size: 12; -fx-text-fill: #64748b;" />
+            </VBox>
+
+        </HBox>
+
+        <!-- ── Charts Row 1: Pie + Bar Enrollment ──────────────── -->
+        <HBox spacing="16">
+
+            <!-- Pie chart -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="chart-card">
+                <Label text="📊  Répartition par niveau"
+                       style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;" />
+                <Separator style="-fx-background-color: #334155;" />
+                <PieChart fx:id="pieLevel" prefHeight="270" animated="true"
+                          legendVisible="true" labelsVisible="true"
+                          style="-fx-font-size: 11px;" />
+            </VBox>
+
+            <!-- Bar: enrollment -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="chart-card">
+                <Label text="📈  Inscriptions par formation"
+                       style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;" />
+                <Separator style="-fx-background-color: #334155;" />
+                <BarChart fx:id="barEnrollment" prefHeight="270" animated="true" legendVisible="false"
+                          style="-fx-font-size: 11px;">
+                    <xAxis><CategoryAxis label="Formation" /></xAxis>
+                    <yAxis><NumberAxis label="Effectif" /></yAxis>
+                </BarChart>
+            </VBox>
+
+        </HBox>
+
+        <!-- ── Charts Row 2: Bar Grades + Bar Satisfaction ─────── -->
+        <HBox spacing="16">
+
+            <!-- Bar: grades -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="chart-card">
+                <Label text="🎯  Performance académique (moy. /20)"
+                       style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;" />
+                <Separator style="-fx-background-color: #334155;" />
+                <BarChart fx:id="barGrades" prefHeight="250" animated="true" legendVisible="false"
+                          style="-fx-font-size: 11px;">
+                    <xAxis><CategoryAxis label="Formation" /></xAxis>
+                    <yAxis><NumberAxis label="Moyenne /20" lowerBound="0" upperBound="20" tickUnit="2" /></yAxis>
+                </BarChart>
+            </VBox>
+
+            <!-- Bar: satisfaction -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="chart-card">
+                <Label text="⭐  Satisfaction par formation (/5)"
+                       style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;" />
+                <Separator style="-fx-background-color: #334155;" />
+                <BarChart fx:id="barSatisfaction" prefHeight="250" animated="true" legendVisible="false"
+                          style="-fx-font-size: 11px;">
+                    <xAxis><CategoryAxis label="Formation" /></xAxis>
+                    <yAxis><NumberAxis label="Note /5" lowerBound="0" upperBound="5" tickUnit="0.5" /></yAxis>
+                </BarChart>
+            </VBox>
+
+        </HBox>
+
+        <!-- ── Charts Row 3: Line Activity + Global Sat ─────────── -->
+        <HBox spacing="16">
+
+            <!-- Line chart: activity trend -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="chart-card">
+                <Label text="📅  Tendance d'activité (avis / mois)"
+                       style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;" />
+                <Separator style="-fx-background-color: #334155;" />
+                <LineChart fx:id="lineActivity" prefHeight="230" animated="true"
+                           legendVisible="false" createSymbols="true"
+                           style="-fx-font-size: 11px;">
+                    <xAxis><CategoryAxis label="Mois" /></xAxis>
+                    <yAxis><NumberAxis label="Avis" /></yAxis>
+                </LineChart>
+            </VBox>
+
+            <!-- Global satisfaction gauge -->
+            <VBox spacing="14" prefWidth="260" maxWidth="280" alignment="CENTER"
+                  styleClass="chart-card">
+                <Label text="🏆  Satisfaction globale"
+                       style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #f1f5f9;" />
+                <Separator style="-fx-background-color: #334155;" />
+                <Label text="⭐" style="-fx-font-size: 36;" />
+                <Label fx:id="globalSatLabel" text="…"
+                       style="-fx-font-size: 40; -fx-font-weight: bold; -fx-text-fill: #2563eb;" />
+                <Label text="Taux de satisfaction global"
+                       wrapText="true"
+                       style="-fx-font-size: 12; -fx-text-fill: #64748b;" />
+                <ProgressBar fx:id="globalSatBar" progress="0" maxWidth="Infinity"
+                             style="-fx-accent: #2563eb; -fx-pref-height: 10; -fx-background-radius: 5;" />
+                <Label text="Basé sur l'ensemble des avis étudiants"
+                       wrapText="true"
+                       style="-fx-font-size: 11; -fx-text-fill: #334155;" />
+            </VBox>
+
+        </HBox>
+
+    </VBox>
+</ScrollPane>
